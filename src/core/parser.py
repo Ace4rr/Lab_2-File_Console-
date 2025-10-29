@@ -18,12 +18,12 @@ def parse_command(line: str) -> tuple[str, list[str], list[str]]:
         (command_name, args, flags)
     """
     line = line.strip()
-    if not line:
-        raise ShellParseError(ERROR_MESSAGES.get("empty_command", "Пустая команда"))
+    #if not line:
+    #    raise ShellParseError(ERROR_MESSAGES.get("empty_command", "Пустая команда"))
 
     tokens = tokenize(line)
-    if not tokens:
-        raise ShellParseError(ERROR_MESSAGES.get("invalid_syntax", "Ошибка синтаксиса"))
+    #if not tokens:
+    #    raise ShellParseError(ERROR_MESSAGES.get("invalid_syntax", "Ошибка синтаксиса"))
 
     command = tokens[0]
     args = []
@@ -81,8 +81,8 @@ def tokenize(line: str) -> list[str]:
             else:
                 current.append(ch)
 
-    if in_quotes:
-        raise ShellParseError(ERROR_MESSAGES.get("unclosed_quotes", "Незакрытые кавычки"))
+    #if in_quotes:
+    #    raise ShellParseError(ERROR_MESSAGES.get("unclosed_quotes", "Незакрытые кавычки"))
 
     if current:
         tokens.append(''.join(current))
