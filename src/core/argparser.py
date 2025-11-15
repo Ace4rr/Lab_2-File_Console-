@@ -25,5 +25,4 @@ def build_parsers():
     p_rm.add_argument("-r", action="store_true")
     p_rm.add_argument("path")
 
-
     return parser

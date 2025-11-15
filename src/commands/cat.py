@@ -19,5 +19,5 @@ class CatCommand(BaseCommand):
                 print(f.read())
             logger.info(f"cat {path}")
         except Exception as e:
-            logger.error(f"cat error:{e}")
+            logger.error(f"Error executing:{e}")
             print(f"Error:{e}")
