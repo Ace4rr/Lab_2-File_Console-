@@ -4,7 +4,18 @@ from commands.base_command import BaseCommand
 from core.logger import logger
 
 class CpCommand(BaseCommand):
+    """Команда для копирования файлов и директорий"""
     def execute(self, args: list[str]):
+        """
+        Копирует файлы или директории
+
+        Args:
+            args: список аргументов ["-r", "source", "destination"]
+                  -r: рекурсивное копирование для директорий
+
+        Returns:
+            None: [копирует файлы или директории в укаханное место]
+        """
         try:
             recursive = "-r" in args
             if recursive:

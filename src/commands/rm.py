@@ -4,7 +4,19 @@ from commands.base_command import BaseCommand
 from core.logger import logger
 
 class RmCommand(BaseCommand):
+    """Команда для удаления файлов и директорий"""
     def execute(self, args: list[str]):
+        """
+        Удаляет файл или директорию
+
+        Args:
+            args: список аргументов
+                [-r: рекурсивное удаление директорий
+                path: путь к файлу или директории]
+
+        Returns:
+            None: [удаляет указанный файл или директорию, выводит результат в консоль]
+        """
         try:
             recursive="-r" in args
             path=next((a for a in args if not a.startswith("-")), None)

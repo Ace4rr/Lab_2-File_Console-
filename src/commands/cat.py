@@ -3,7 +3,17 @@ from commands.base_command import BaseCommand
 from core.logger import logger
 
 class CatCommand(BaseCommand):
+    """Команда для вывода содержимого файла"""
     def execute(self, args: list[str]):
+        """
+        Выводит содержимое файла в консоль
+
+        Args:
+            args:  [args[0] - путь к файлу]
+
+        Returns:
+            None: [выводит содержимое файла в консоль]
+        """
         try:
 
 

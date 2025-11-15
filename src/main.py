@@ -10,6 +10,9 @@ from commands.rm import RmCommand
 
 parser=build_parsers()
 def main():
+    """REPL цикл для minishell
+    Считывает команды пользователя, разбирает их через argparse
+    и передаёт выполнение обработчикам"""
     while True:
         raw=input("minishell>")
         if (raw.lower()=="exit") or (raw.lower()==("quit")):
