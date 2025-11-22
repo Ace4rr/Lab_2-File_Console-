@@ -7,6 +7,11 @@ from commands.cat import CatCommand
 from commands.cp import CpCommand
 from commands.mv import MvCommand
 from commands.rm import RmCommand
+from commands.grep import GrepCommand
+from commands.zip import ZipCommand
+from commands.tar import TarCommand
+from commands.unzip import UnzipCommand
+from commands.untar import UntarCommand
 
 parser=build_parsers()
 def main():
@@ -49,6 +54,23 @@ def main():
                     cmd_args.append("-r")
                 cmd_args.append(args.path)
                 RmCommand().execute(cmd_args)
+            elif args.command==("grep"):
+                cmd_args=[]
+                if args.r:
+                    cmd_args.append("-r")
+                if args.i:
+                    cmd_args.append("-i")
+                cmd_args.extend([args.pattern,args.path])
+                GrepCommand().execute(cmd_args)
+            elif args.command == "zip":
+                ZipCommand().execute([args.folder, args.archive])
+            elif args.command == "tar":
+                TarCommand().execute([args.folder, args.archive])
+            elif args.command == "unzip":
+                UnzipCommand().execute([args.archive])
+            elif args.command == "untar":
+                UntarCommand().execute([args.folder, args.archive])
+
         except Exception as e:
                 print(f"Error:{e}")
 

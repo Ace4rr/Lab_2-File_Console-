@@ -25,4 +25,24 @@ def build_parsers():
     p_rm.add_argument("-r", action="store_true")
     p_rm.add_argument("path")
 
+    p_grep = subparsers.add_parser("grep")
+    p_grep.add_argument("-r", action="store_true")
+    p_grep.add_argument("-i", action="store_true")
+    p_grep.add_argument("pattern")
+    p_grep.add_argument("path")
+
+    p_zip = subparsers.add_parser("zip")
+    p_zip.add_argument("folder")
+    p_zip.add_argument("archive")
+
+    p_unzip = subparsers.add_parser("unzip")
+    p_unzip.add_argument("archive")
+
+    p_tar = subparsers.add_parser("tar")
+    p_tar.add_argument("folder")
+    p_tar.add_argument("archive")
+
+    p_untar = subparsers.add_parser("untar")
+    p_untar.add_argument("archive")
+
     return parser
